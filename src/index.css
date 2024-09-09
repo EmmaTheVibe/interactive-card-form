@@ -1,13 +1,335 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+}
+
+.container {
+  width: 320px;
+  position: relative;
+}
+
+.cards {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+}
+.cards .container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.front {
+  position: absolute;
+  display: flex;
+  top: 87px;
+  left: 0;
+  width: 85%;
+  aspect-ratio: 16/9;
+  z-index: 3;
+  border-radius: 6px;
+  box-shadow: 0px 18px 40px 2px rgba(0, 0, 0, 0.2);
+}
+.front-bg {
+  width: 100%;
+  height: 100%;
+}
+.front-info {
+  position: absolute;
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 4;
+}
+.svg {
+  width: 55px;
+  height: 30px;
+}
+.card-no {
+  letter-spacing: 3px;
+}
+.name-line {
+  margin-top: 18px;
+  font-size: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1px;
+}
+.name-txt {
+  width: 79%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+}
+
+.back {
+  width: 85%;
+  aspect-ratio: 16/9;
+  display: flex;
+  position: relative;
+}
+.back img {
+  width: 100%;
+  height: 100%;
+}
+.cvv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  z-index: 2;
+  padding-right: 11%;
+  padding-top: 24.5%;
+}
+.cvv p {
+  font-size: 12px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+}
+form {
+  width: 100%;
+}
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.name,
+.number {
+  margin-bottom: 20px;
+}
+.grid {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.carrier {
+  width: 50%;
+}
+.exp {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+}
+input {
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  border: 1.3px solid hsl(270, 3%, 87%);
+  padding-left: 10px;
+  color: hsl(278, 68%, 11%);
+  caret-color: hsl(278, 68%, 11%);
+  background: white;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+input:focus {
+  outline: none;
+  border: 1.3px solid transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.cvc-label {
+  width: 50%;
+}
+.tag {
+  margin-bottom: 6px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: hsl(278, 68%, 11%);
+}
+.error {
+  color: hsl(0, 100%, 66%);
+  font-size: 12px;
+}
+.grid .error {
+  font-size: 10px;
+}
+button {
+  width: 100%;
+  height: 46px;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: hsl(278, 68%, 11%);
+  border: none;
+  cursor: pointer;
+}
+
+.thanks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.thanks svg {
+  margin-bottom: 26px;
+}
+.thanks h1 {
+  letter-spacing: 2px;
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+.thanks p {
+  margin-bottom: 40px;
+  color: hsl(279, 6%, 55%);
+}
+
+@media screen and (min-width: 400px) {
+  .container {
+    width: 350px;
+  }
+
+  .cvv {
+    padding-right: 10%;
+    padding-top: 24.8%;
+  }
+
+  .front {
+    top: 93px;
+  }
+  .card-no {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .app {
+    display: flex;
+    width: 100%;
+  }
+
+  .container {
+    width: 350px;
+  }
+
+  .cards {
+    width: 400px;
+    min-height: 100vh;
+  }
+
+  .front {
+    top: -180px;
+    left: 35%;
+    width: 300px;
+    height: 160px;
+    box-shadow: 3px 60px 40px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .back {
+    position: absolute;
+    width: 300px;
+    height: 160px;
+    left: 50%;
+    top: 20px;
+    border-radius: 6px;
+    box-shadow: 6px 18px 40px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  section {
+    width: calc(100% - 400px);
+  }
+
+  .cvv {
+    padding-right: 10%;
+    padding-top: 23.6%;
+  }
+
+  .grid .error {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 1380px) {
+  .cards {
+    width: 400px;
+  }
+
+  .front {
+    top: -200px;
+    left: 35%;
+    width: 350px;
+    height: 190px;
+  }
+  .front-info {
+    padding: 24px;
+  }
+  .svg {
+    width: 68px;
+    height: 38px;
+  }
+  .card-no {
+    font-size: 22px;
+  }
+  .name-line {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+
+  .back {
+    position: absolute;
+    top: 30px;
+    width: 350px;
+    height: 190px;
+    left: 60%;
+  }
+
+  section {
+    width: calc(100% - 400px);
+  }
+
+  .cvv {
+    padding-right: 13%;
+    padding-top: 24.2%;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .cards {
+    width: 600px;
+  }
+
+  .front {
+    left: 65%;
+  }
+
+  .back {
+    left: 90%;
+  }
+
+  section {
+    width: calc(100% - 600px);
+  }
 }
